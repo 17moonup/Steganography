@@ -3,11 +3,14 @@ function [stegoimg] = lsb_full_en(simg,stego)
     [M,N] = size(stego);
     [m,n] = size(simg);
   
-    %evaluate
+    %evaluate the size between stego img && secret img
+    
     if m>M || n>N
         simg = imresize(simg,[M,N]);
     end
+    
     %lsb_encode
+    
     if(n<=N && m<=M)
         for i = 1:m
             for j = 1:n
@@ -25,6 +28,8 @@ function [stegoimg] = lsb_full_en(simg,stego)
     else
         fprintf('Secret img is too big for stego!!!');
     end
+    
 stegoimg = stego;
 imwrite(stegoimg, 'stegoimg.bmp');
+
 end

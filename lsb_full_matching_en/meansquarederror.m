@@ -3,9 +3,10 @@ function [] = meansquarederror (stego, stegoimg)
     stego = double(stego);
     stegoimg = double(stegoimg);
     d = stegoimg - stego;
-    MSE = sum(d(:).*d(:))/numel(stegoimg);
+    MSE = immse(stego, stegoimg);
     display(MSE);
+    max_val = 1;
     figure
-   
-    histogram(d);   
-    title('lsbfullmatching');
+    histogram(d,'BinWidth',1);
+    PSNR=10 * log10((max_val^2) / MSE);
+    display(PSNR); 
