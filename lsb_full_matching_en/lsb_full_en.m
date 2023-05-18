@@ -29,7 +29,7 @@ function [stegoimg] = lsb_full_en(simg,stego)
                    
                     %if even plus 1
                     
-                    tmp = randi([-1, 1], 1);
+                    tmp = randi([-1, 1], 1)*2 - 1;
                     stego(i,j) = stego(i,j) + tmp;
                     rando(i,j) = tmp;
                 elseif stego(i,j) == 255
