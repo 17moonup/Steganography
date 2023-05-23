@@ -23,7 +23,7 @@ function [stego] = randomlsb(simg,cover)
                     %if even plus 1
                     
                     tmp = randi([0, 1], 1)*2 - 1; 
-                    cover(T2(i),T2(j)) = cover(T2(i),T2(j) + tmp;
+                    cover(T2(i),T2(j)) = cover(T2(i),T2(j)) + tmp;
              
                 elseif cover(T2(i),T2(j)) == 255
                     cover(T2(i),T2(j)) = cover(T2(i),T2(j)) - 1;

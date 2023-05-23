@@ -1,4 +1,4 @@
-function [stego] = lsb_full_en(simg,cover)
+function [stego] = lsb(simg,cover)
     
     [M,N] = size(cover);
     [m,n] = size(simg);

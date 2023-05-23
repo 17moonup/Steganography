@@ -2,17 +2,24 @@ clc; clear; close all;
 
 % preprocessing
 
-fprintf('Please choose stego and secret img for lsb_full...\n');
-simg = rgb2gray(imread('simg.bmp'));
+simg = imread('simg.bmp');
 cover = imread('cover.bmp');
 [m, n, numChannels] = size(cover);
-simg = imbinarize(simg);
-
-if numChannels == 1 
-	lsb(simg,cover);
+if islogical(simg)
+    if numChannels == 1 
+        randomlsb(simg,cover);
+    else 
+        cover = rgb2gray(cover);
+        randomlsb(simg,cover);
+    end
 else 
-	cover = rgb2gray(cover);
-	lsb(simg,cover);
+    simg = imbinarize(simg);
+    if numChannels == 1 
+        randomlsb(simg,cover);
+    else 
+        cover = rgb2gray(cover);
+        randomlsb(simg,cover);
+    end
 end
 
 %caculate Euclidean distance
@@ -20,9 +27,3 @@ end
 % calculate the Ed
 
 % mse && histogram && psnr
-
-figure
-histogram(cover,'BinWidth',1);title('stego')
-figure
-histogram(stego, 'BinWidth', 1);title('stegoimg')
-meansquarederror(cover, stego);
