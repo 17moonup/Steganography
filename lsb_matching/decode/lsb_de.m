@@ -1,4 +1,4 @@
-function[simg] = lsb_full_de(stego)
+function[simg] = lsb_de(stego)
 [m,n] = size(stego);
 simg = zeros(m,n);
 for i = 1:m

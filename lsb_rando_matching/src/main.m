@@ -21,7 +21,8 @@ else
         randomlsb(simg,cover);
     end
 end
-
+stego = imread('stegoimgrando.bmp');
+lsbdecode(stego);
 %caculate Euclidean distance
 
 % calculate the Ed
